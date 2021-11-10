@@ -38,14 +38,30 @@ public class Main
                 return console.nextLine();
         }
 
-        //return console.nextLine();
-        //return (T) console.nextLine();
+        /* return console.nextLine();
+        return (T) console.nextLine();*/
     }
 
     /**
      * This method prints the log to the console
      * @param log String array of input lines
      */
+    public static void printLog(int[] log)
+    {
+        for (var line:log)
+        {
+            System.out.println(line);
+        }
+    }
+
+    public static void printLog(float[] log)
+    {
+        for (var line:log)
+        {
+            System.out.println(line);
+        }
+    }
+
     public static void printLog(String[] log)
     {
         for (var line:log)
@@ -53,11 +69,63 @@ public class Main
             System.out.println(line);
         }
     }
+
+    
+    public static void buildLog(int[] log)
+    {
+        for (int i = 0; i < Config.NUM_OF_INTEGERS; i++)
+        {
+            //String className = log[i].getClass().getSimpleName();
+            String prompt = "Enter your Integer: ";
+            log[i] = (int) getConsoleInput(prompt, log[i]);
+            
+        }
+    }
+
+    public static void buildLog(float[] log)
+    {
+        for (int i = 0; i < Config.NUM_OF_FLOATS; i++)
+        {
+            String prompt = "Enter your Floating Number: ";
+            log[i] = (float) getConsoleInput(prompt, log[i]);
+        }
+    }
+
+    public static void buildLog(String[] log)
+    {
+        for (int i = 0; i <Config.NUM_OF_STRINGS ; i++)
+        {
+            String prompt = "Enter your String: ";
+
+            log[i] = "";
+            log[i] = (String) getConsoleInput(prompt, log[i]);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        String[] Log = new String[Config.NUM_OF_STRINGS];
+        int[] intLog = new int[Config.NUM_OF_INTEGERS];
+        float[] floatLog = new float[Config.NUM_OF_FLOATS];
+
+        buildLog(intLog);
+        printLog(intLog);
+        System.out.println();
+
+        buildLog(floatLog);
+        printLog(floatLog);
+        System.out.println();
+
+        buildLog(Log);
+        printLog(Log);
+        System.out.println();
+
+    }
     /**
      * Entry point for our application
      * @param args
      */
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         int intNumber = 0;
         float floatNumber = 0.0f;
@@ -84,5 +152,5 @@ public class Main
         }
         printLog(log);*/
 
-    }
+    //}
 }
